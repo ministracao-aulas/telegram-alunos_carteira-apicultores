@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      /* 954px / 16px = 59.625rem */
+      /* 597px / 16px = 37.3125rem */
+
+      .carteira-front,
+      .carteira-back {
+        font-family: Arial;
+        width: 59.625rem;
+        height: 37.3125rem;
+        margin-bottom: 1rem;
+        position: relative;
+      }
+
+      .carteira-front {
+        background-image: url("images/01.jpg");
+        background-repeat: no-repeat;
+      }
+
+      .carteira-back {
+        background-image: url("images/02.jpg");
+        background-repeat: no-repeat;
+      }
+
+      .front-name {
+        font-size: 2.5rem;
+        font-weight: 600;
+        left: 2.2rem;
+        top: 19.1rem;
+        position: absolute;
+        transform: scaleY(1.5);
+        width: 32rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: "";
+        text-align: center;
+      }
+
+      .front-full-name {
+        font-size: 2rem;
+        font-weight: 600;
+        left: 2.2rem;
+        top: calc(19.1rem + 5.5rem);
+        position: absolute;
+        transform: scaleY(1.5);
+        width: 32rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: "";
+        text-align: center;
+      }
+
+      .front-card-type {
+        font-size: 2.5rem;
+        font-weight: bolder;
+        text-transform: uppercase;
+        left: 35.5rem;
+        top: 22.3rem;
+        position: absolute;
+        width: 17.1rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: "";
+        text-align: center;
+      }
+
+      .front-role-type {
+        font-size: 1.5rem;
+        font-weight: 100;
+        text-transform: uppercase;
+        left: 30rem;
+        top: 29.5rem;
+        position: absolute;
+        width: 22.1rem;
+        height: 2.5rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: "";
+        text-align: center;
+      }
+
+      .front-picture {
+        background-color: lightgray;
+        left: 38.3rem;
+        top: 1.8rem;
+        position: absolute;
+        width: 13.65rem;
+        height: 16.7rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: "";
+        text-align: center;
+        background-image: url("images/avatar.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+
+      .front-bar-code-picture {
+        background-color: white;
+        left: 3rem;
+        top: calc(19.1rem + 9.2rem);
+        position: absolute;
+        text-align: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 25rem;
+        height: 5rem;
+      }
+
+      .form-container {
+        width: 95%;
+        margin: 0.2rem auto;
+      }
+
+      .form-row {
+        width: 95%;
+        margin: 0.5rem 0.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+        x-data="data"
+        class="container">
+      <div class="form-container">
+        <div class="form-row">
+            <label>Nome</label>
+            <input type="text" x-model="firstName" placeholder="Nome" />
+        </div>
+
+        <div class="form-row">
+            <label>Sobrenome</label>
+            <input type="text" x-model="lastName" placeholder="Sobrenome" />
+        </div>
+
+        <div class="form-row">
+            <label>Tipo</label>
+            <input type="text" x-model="cardType" placeholder="Tipo" />
+        </div>
+
+        <div class="form-row">
+            <label>Especialidade</label>
+            <input type="text" x-model="roleType" placeholder="Especialidade" />
+        </div>
+      </div>
+
+      <div class="carteira-container">
+        <div class="carteira-front">
+          <span
+            class="front-picture"
+            style="
+              background-image: url('images/foto-usuario.jpg');
+              background-size: cover;
+            "
+          >
+          </span>
+
+          <span class="front-name" x-text="firstName"></span>
+          <span class="front-full-name" x-text="fullName"></span>
+          <span class="front-card-type" x-text="cardType"></span>
+          <span class="front-role-type" x-text="roleType"></span>
+
+          <span
+            class="front-bar-code-picture"
+            style="
+              background-image: url('images/bar-code.png');
+              background-size: cover;
+            "
+          ></span>
+        </div>
+
+        <div class="carteira-back">
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        function data() {
+            return {
+                firstName: 'Tiago',
+                lastName: 'França Fernandes',
+                cardType: 'Credencial',
+                roleType: 'Meliponicultora',
+
+                fullName() {
+                    return `${this.firstName} ${this.lastName}`
+                }
+            }
+        }
+    </script>
+  </body>
+</html>

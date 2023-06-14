@@ -1,0 +1,41 @@
+/* Reset CSS */
+
+/* Seletores universais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Elementos de bloco */
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Elementos de linha */
+  a, span, strong, em {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Listas */
+  ul, ol {
+    list-style: none;
+  }
+
+  /* Imagens */
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Estilos globais */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Outros estilos específicos do seu projeto podem ser adicionados abaixo */
